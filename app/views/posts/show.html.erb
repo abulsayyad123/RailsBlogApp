@@ -1,0 +1,18 @@
+<h2><%= @post.title %></h2>
+<%= link_to 'Back to Index', posts_path %>
+<p><%= @post.post_body %></p>
+
+Expected time: <%= @post.reading_time %>
+
+
+<% if @post.comments.any? %>
+	<h2>Comments: </h2>
+	<% @post.comments.each do |comment| %>
+		<p>
+			<div><%= comment.comment_text %></div>
+			<span><%= link_to 'X', post_comment_path(@post, comment), method: :delete, data: { confirm: 'Are you sure?' } %> </span>
+		</p>
+	<% end %>
+<% end %>
+
+<%= render 'comment_form', comment: @comment, post: @post %>

@@ -1,0 +1,23 @@
+<%= form_with(model: post, local: true) do |form| %>
+	<div>
+		<label><%= form.label :title %></label>
+		<%= form.text_field :title, id: :post_title %>
+	</div>
+
+	<div>
+		<label><%= form.label :post_body %></label>
+		<%= form.text_area :post_body, id: :post_body %>
+	</div>
+
+	<div>
+		<label><%= form.label :image_url %></label>
+		<%= form.text_field :image_url, id: :post_image_url %>
+	</div>
+
+	<div>
+		<label><%= form.label :reading_time %></label>
+		<%= form.time_field :reading_time, id: :post_reading_time %>
+	</div>
+
+	<%= form.submit %>
+<% end %>
